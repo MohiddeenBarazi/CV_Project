@@ -1,0 +1,39 @@
+﻿@page
+@model BrowseCVModel
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CV[0].Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CV[0].Lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CV[0].Grade)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CV) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CVID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CVID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CVID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
